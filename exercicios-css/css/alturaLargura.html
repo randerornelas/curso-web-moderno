@@ -5,9 +5,16 @@
     <meta charset="UTF-8">
     <title>Altura e Largura</title>
     <style>
+        /* Por padrão o <body> ocupa toda a largura, mas não a altura. */
+        /* Colocando a altura do <html> para 100%, é possível o <body> ocupar toda a altura */
+        html {
+            height: 100%;
+        }
         body {
             font-size: 40px;
             background-color: coral;
+            height: 100%;
+            margin: 0;
         }
 
         div {
@@ -16,6 +23,13 @@
 
         span {
             background-color: dodgerblue;
+        }
+
+        /* Os valores de width e height preenchem o local onde eles estão, no caso <body> */
+        span, div {
+            width: 50%;
+            height:50%;
+            display: block;
         }
     </style>
 </head>

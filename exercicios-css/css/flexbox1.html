@@ -6,7 +6,48 @@
     <title>Flexbox #01</title>
     <link rel="stylesheet" href="css/tag.css">
     <style>
-        /* ... */
+        .big {
+            font-size: 1.5em;
+        }
+        .flex-container {
+            display: flex;
+
+            flex-direction: column; /* indica se vai ser organizado em linhas ou colunas */
+            flex-direction: column-reverse;
+            flex-direction: row-reverse;
+            flex-direction: row; /* padrão */
+
+            width: 50%;
+            height: 400px;
+
+            flex-wrap: wrap; /* quebra de linha */
+            flex-wrap: wrap-reverse;
+
+            /* flex-flow junta propriedades flex-wrap e flex-direction */
+            flex-flow: column wrap;
+            flex-flow: row wrap;
+
+            /* Main Axis */
+            justify-content: flex-start; /* alinha no início */
+            justify-content: flex-end; /* alinha no final */
+            justify-content: center; /* centraliza */
+            justify-content: space-around; /* coloca espaços entre, no início e no final */
+            justify-content: space-between; /* coloca espaços apenas entre os elementos */
+
+            /* Cross Axis */
+            align-items: stretch; /* padrão */
+            align-items: baseline; /* alinha pela linha de base das fontes */
+            align-items: flex-start; /* alinha pela linha superior do elemento */
+            align-items: flex-end; /* alinha pela linha inferior do elemento */
+            align-items: center; /* centraliza */
+
+            /* mais de uma linha */
+            align-content: flex-start; /* todas as linhas vão para o início do flex-container */
+            align-content: flex-end; /* todas as linhas vão para o final do flex-container */
+            align-content: center; /* centraliza as linhas no flex-container */
+            align-content: space-around;
+            align-content: space-between;
+        }
     </style>
 </head>
 

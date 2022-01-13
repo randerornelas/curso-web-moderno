@@ -5,7 +5,28 @@
     <meta charset="UTF-8">
     <title>Unidades #01</title>
     <style>
-        /* ... */
+        .unidades-absolutas {
+            position: absolute;
+            font-size: 40px;
+            padding: 20px;
+            border: solid 5px #222;
+            margin: 30px;
+            width: 4cm; /* pouco usado */
+            height: 20mm; /* pouco usado */
+            top: 150px; /* distância do topo da página para a div */
+            left: 200px; /* distância do lado esquerdo para a div */
+        }
+
+        .unidades-relativas {
+            position: absolute;
+            font-size: 4em; /* 4 vezes o tamanho original */
+            padding: 5%;
+            border: solid 1vw #222; /* 1vw equivale a 1/100 da largura da tela */
+            width: 20vw;
+            height: 15vh; /* 15vh equivale a 15/100 da altura da tela */
+            bottom: 5%;
+            right: 5%;
+        }
     </style>
 </head>
 

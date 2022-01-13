@@ -12,6 +12,28 @@
             border: solid 5px;
             display: none;
         }
+
+        @media (max-width: 600px) {
+            /* com a largura máxima da página de 600px, aplica o estilo abaixo */
+            .muito-pequeno {
+                display: block;
+            }
+        }
+
+        @media (max-width: 1000px), (orientation: portrait) {
+            /* enquanto a largura for menor ou igual a 1000px ou a orientação for retrato
+                aplica o estilo abaixo */
+                .pequeno-retrato {
+                    display: block;
+                }
+        }
+
+        @media (min-width: 500px) and (max-width: 1000px) {
+            /* se o tamanho da tela for no mínimo 500px e no máximo 1000px */
+            .intervalo {
+                display: block;
+            }
+        }
     </style>
 </head>
 <body>

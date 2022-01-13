@@ -7,7 +7,111 @@
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <style>
-        /* ... */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Oswald, sans-serif;
+            background-color: lightgrey;
+            margin: 0px;
+        }
+
+        .cabecalho {
+            padding: 3px;
+            background-color: #333;
+            border-bottom: solid 5px #4faddb;
+            height: 80px;
+            box-sizing: content-box;
+        }
+
+        .menu {
+            display: inline-block;
+            vertical-align: top;
+            height: 80px;
+            padding: 25px;
+        }
+
+        .menu ul {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .menu li {
+            display: inline-block;
+        }
+
+        .menu a:hover, .menu a.selected {
+            color: black;
+            background-color: #4faddb;
+        }
+
+        .menu a {
+            color: #eee;
+            text-decoration: none;
+            font-size: 1.3em;
+            padding: 15px;
+        }
+
+        .logo {
+            display:inline-block;
+            height: 80px;
+            padding: 15px;
+        }
+
+        .logo img {
+            height: 100%;
+        }
+
+        .autenticacao {
+            float: right;
+            height: 80px;
+            padding: 25px;
+        }
+
+        .autenticacao a {
+            color: #eee;
+            text-decoration: none;
+            font-size: 1.3em;
+        }
+
+        .botao {
+            border-radius: 30px;
+            padding: 10px 25px;
+            margin: 10px;
+        }
+
+        .destaque {
+            color: white;
+            background-color: #f50a31;
+        }
+
+        .menu-toggle {
+            float: right;
+            color: #eee;
+            background-color: #555;
+            border: solid 1px #777;
+            height: 40px;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin: 20px 15px;
+        }
+
+        @media (min-width: 679px) {
+            .menu-toggle {
+                display: none;
+            }
+        }
+        @media (max-width: 680px) {
+            .menu {
+                display: none;
+            }
+        }
+        @media (max-width: 920px) {
+            .autenticacao {
+                display: none;
+            }
+        }
     </style>
 </head>
 
@@ -15,7 +119,7 @@
     <header class="cabecalho">
         <div class="logo">
             <a href="#inicio">
-                <img src="http://files.cod3r.com.br/curso-web/logo.png" alt="Logo" />
+                <img src="http://files.cod3r.com.br/curso-web/logo.png" alt="Logo"/>
             </a>
         </div>
         <button class="menu-toggle">
@@ -44,7 +148,19 @@
     </header>
 
     <script>
-        // ...
+        window.onhashchange = function(e) {
+            const oldURL = e.oldURL.split('#')[1] // pega o que tiver depois do #
+            const newURL = e.newURL.split('#')[1]
+            console.log(oldURL, newURL)
+
+            const oldLink = document.querySelector(`.menu a[href='#${oldURL}']`)
+            const newLink = document.querySelector(`.menu a[href='#${newURL}']`)
+
+            // remove a class='selected' do menu anterior
+            oldLink && oldLink.classList.remove('selected')
+            // adiciona a class='selected' no menu atual
+            newLink && newLink.classList.add('selected')
+        }
     </script>
 </body>
 

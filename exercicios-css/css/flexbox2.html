@@ -6,7 +6,42 @@
     <title>Flexbox #02</title>
     <link rel="stylesheet" href="css/tag.css">
     <style>
-        /* ... */
+        .flex-container div {
+            width: 100px;
+            flex-grow: 0;
+            /* Divide os elementos na tela. 1 é o padrão.
+            Quanto maior o número, maior o elemento. */
+            flex-grow: 1;
+            box-sizing: border-box;
+        }
+
+        .flex-container div:nth-child(1) { /* pegar o 1º filho dentro de flex-container */
+            flex-grow: 2; /* aumenta somente este elemento */
+        }
+
+        .flex-container div:nth-child(1) {
+            flex-shrink: 5; /* encolhe o elemento */
+        }
+
+        .flex-container {
+            display: flex;
+            height: 300px;
+            width: 300px;
+
+            flex-shrink: 1; /* encolhe o elemento */
+        }
+
+        .flex-container div:nth-child(3) { /* pegar o 3º filho dentro de flex-container */
+            background-color: indianred;
+            /* Todos os itens possuem a ordem 0.
+            Quem possuir a ordem maior vai sendo exibido por último. */
+            order: 1;
+            order: -1;
+            align-self: center;
+            align-self: flex-end;
+            align-self: flex-start;
+            align-self: stretch; /* padrão */
+        }
     </style>
 </head>
 
