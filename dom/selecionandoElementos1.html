@@ -11,7 +11,25 @@
     <div class="terceiro ultimo">.terceiro .ultimo</div>
 
     <script>
+        // Seleciona pelo id. Como já é esperado um id, não precisa colocar o #.
+        // Adiciona uma classe chamada 'destaque'.
+        document.getElementById('primeiro').classList.add('destaque')
 
+        // Busca pelo nome da tag
+        // Retorna um html collections
+        const divs = document.getElementsByTagName('div')
+        const divsArray = Array.from(divs) // converte o html collections em array
+
+        divsArray.forEach(e => e.classList.remove('destaque'))
+        divsArray.forEach(e => e.classList.add('destaque'))
+
+        // Seleciona pela classe. Como já espera uma classe, não precisa colocar o .
+        const ultimosElementos = document.getElementsByClassName('ultimo')
+
+        // percorre o html collections
+        for(let e of ultimosElementos) {
+            e.classList.remove('destaque')
+        }
     </script>
 </body>
 </html>
