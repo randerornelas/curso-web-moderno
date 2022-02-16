@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax com JS Puro</title>
+</head>
+
+<body>
+    <form">
+        <div>Buscando CEP com requisição AJAX</div>
+        <div>
+            <div>
+                <div>
+                    <label>CEP</label>
+                    <div>
+                        <input name="cep" type="text">
+                        <button class="botao-pesquisar" >Pesquisar</button>
+                    </div>
+                </div>
+                <div>
+                    <label>Endereço</label>
+                    <input name="endereco" type="text">
+                </div>
+                <div>
+                    <label>Numero</label>
+                    <input name="numero" type="text">
+                </div>
+            </div>
+            <div>
+                <div>
+                    <label>Bairro</label>
+                    <input name="bairro" type="text">
+                </div>
+                <div>
+                    <label>Complemento</label>
+                    <input name="complemento" type="text">
+                </div>
+            </div>
+            <div>
+                <div>
+                    <label>Cidade</label>
+                    <input name="cidade" type="text">
+                </div>
+                <div>
+                    <label>Estado</label>
+                    <input name="estado" type="text">
+                </div>
+            </div>
+        </div>
+        </form>
+
+        <script>
+            function buscaCep() {
+                let inputCep = document.querySelector('input[name=cep]')
+                let cep = inputCep.value.replace('-', '')
+                const xhr = new XMLHttpRequest()
+
+                const url = `http://viacep.com.br/ws/${cep}/json`
+
+
+                xhr.open('GET', url, true)
+
+                xhr.onreadystatechange = e => {
+                    // Verifica se a requisição foi finalizada. O código 4 informa isso.
+                    if (xhr.readyState === 4) {
+                        // Verifica se foi bem sucedida
+                        if (xhr.status === 200) {
+                            preencheCampos(JSON.parse(xhr.response))
+                        }
+                    }
+
+                }
+
+                xhr.send()
+            }
+
+            function preencheCampos(json) {
+                document.querySelector('input[name=endereco]').value = json.logradouro
+                document.querySelector('input[name=bairro]').value = json.bairro
+                document.querySelector('input[name=complemento]').value = json.complemento
+                document.querySelector('input[name=cidade]').value = json.localidade
+                document.querySelector('input[name=estado]').value = json.uf
+            }
+
+            const botaoPesquisar = document.querySelector('.botao-pesquisar')
+
+            botaoPesquisar.onclick = e => buscaCep()
+        </script>
+</body>
+
+</html>
